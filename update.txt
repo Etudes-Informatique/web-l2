@@ -1,0 +1,70 @@
+20/04/2026 (Arthur) :
+- Système de création de compte (register.html & register.php)
+    - Vérifie si un utilisateur avec cet identifiant existe déjà
+    - Vérifie que le mot de passe soit plus long ou égal à 8 caractères, si il y a une majuscule et si il y a un caractère spécial.
+    TODO: Connecter automatiquement l'utilisateur quand il crée sans compte pour pas qu'il est besoin de se connecter manuellement.
+- Création de la première table de la base de donnée (bdd.sql)
+- Page de base du site (index.php) : modifie librement pour rendre ça plus beau 
+
+--------------------------------------------------------
+
+21/04/2026 (Gwendal) : 
+- Début du CSS de la page index.php 
+    - (Bouton "Commencer" -> login.html | Lien hypertext "Crée un compte" -> register.html).
+    - Ajout de texte pour embelir la page d'accueil.
+    - logo à venir (si j'ai de l'inspi).
+
+--------------------------------------------------------
+
+21/04/2026 (Arthur) :
+    - Création du système de connection (php/login.php ; html/login.html)
+    - Ajout des deux boutons principaux quand on est connecté (index.php)
+    - Retrait de l'ancien bouton d'inscription (index.php)
+    - Ajout du système pour se déconnecter (php/logout.php)
+    - Ajout d'une "API" pour faire la page des tâches dynamiques (api/get_tasks.php)
+    - Ajout de la table avec les tâches (bdd.sql)
+    - Ajout de la récupération et mise à jour automatiquement des tâches (js/show_task.js)
+    - Ajout de la page pour afficher les tâches (php/dashboard.php)
+    - Ajout d'un bouton pour marquer la tâche comme fini (php/dashboard.php ; api/finish_task.php)
+    - Ajout d'un bouton pour supprimer la tâche (php/dashboard.php ; api/delete_task.php)
+    - Début de la mise en place de création de tâche (php/dashboard.php ; js/create_task.js)
+    - Mise en place de l'API pour la création de tâche (php/create_task.php)
+
+    Tu vas voir y a pleins de truc dynamique un max maintenant ! Tu vas t'amuser chef !
+    Fichiers modifié : php/register.php ; php/login.php ; html/login.html ; index.php ; php/logout.php ; api/get_tasks.php ; bdd.sql ; js/show_task.js ; php/dashboard.php ; api/finish_task.php ;
+    api/delete_task.php ; js/create_task.js ; php/create_task.php
+
+    TODO: Système de status (Fini, En cours, non commencé)
+    TODO: Bouton modification de tâche.
+    TODO: Mise en place des tries des tâches.
+    TODO: Création de catégorie 
+
+    BONUS :
+    
+    TODO: Barre de recherche 
+    TODO: Système de fitre
+    TODO: Rappel des tâches qui arrivent bientôt à therme
+    TODO: Limite de tâche par page (10,20,...)
+    TODO: Pouvoir supprimer son compte
+    
+--------------------------------------------------------
+
+23/04/2026 (Arthur) :
+    - Ajout d'une colonne status pour les tâches (bdd.sql)
+    - Ajout du système pour le changement d'état de la tâche : Non Commencé -> En Cours -> Terminé (js/show_task.js ; php/start_task.php)
+    - Ajout de la possibilité de modifier des tâches. (js/show_task.js ; php/edit_task.php ; php/get_task_id.php)
+
+    Fichiers modifié : bdd.sql ; js/show_task.js ; php/start_task.php ; php/edit_task.php ; php/get_task_id.php
+
+    TODO: Mise en place des tries des tâches.
+    TODO: Création de catégorie 
+
+    BONUS :
+    
+    TODO: Barre de recherche 
+    TODO: Système de fitre
+    TODO: Rappel des tâches qui arrivent bientôt à therme
+    TODO: Limite de tâche par page (10,20,...)
+    TODO: Pouvoir supprimer son compte
+
+--------------------------------------------------------

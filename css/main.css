@@ -1,0 +1,54 @@
+@font-face {
+font-family: fontFine;
+src: url("../Nexa-ExtraLight.ttf");
+}
+
+@font-face {
+font-family: fontGras;
+src: url("../Nexa-Heavy.ttf");
+}
+
+#homeMain{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black; /* Bordure temporaire pour connaitre les limites du bloc div */
+    color: rgb(34, 34, 34);
+    font-family: fontFine;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#homeMain h1 {
+    margin-bottom: 0;
+}
+
+#homeMain #Connect {
+    color: rgb(255, 255, 255);
+    background-color: rgb(105, 52, 252);
+    border: 0;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 10px 30px 10px 30px;
+    font-family: fontFine;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#homeMain #Connect:hover {
+    background-color: rgb(78, 17, 247);
+    transition: 200ms;
+    cursor: pointer;
+}
+
+#homeMain #createAccount {
+    font-size: 15px;
+    margin-top: 0;
+}
+
+#homeMain #createAccount a {
+    text-decoration: none;
+    color: rgb(105, 52, 252);
+    font-weight: bold;
+}

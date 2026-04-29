@@ -1,0 +1,46 @@
+<?php
+function gotError($connexion) {
+        echo mysqli_error($connexion);
+        echo "<p id='mysql_error'>Une erreur s'est produite durant votre inscription, veuillez contacter l'administrateur.</p>";
+        echo "<button onclick=\"window.location.href='../html/register.html'\">Réessayer</button>";
+        exit;        
+    }
+
+    function errorLogin() {
+        echo "<p id='mysql_error'>Identifiant ou mot de passe incorrect.</p>";
+        echo "<button onclick=\"window.location.href='../html/login.html'\">Réessayer</button>";
+        exit;    
+    }
+
+    $identifiant = $_GET['identifiant'];
+    $password = $_GET['password'];
+
+    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+
+    if (!$connexion) {
+        gotError($connexion);
+    }
+
+    $request = "SELECT * FROM accounts WHERE identifiant = ?";
+    $stmt = mysqli_prepare($connexion, $request);
+    mysqli_stmt_bind_param($stmt, "s", $identifiant);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) == 0) {
+        errorLogin();
+    }
+
+    $user = mysqli_fetch_assoc($result);
+
+    if (!password_verify($password, $user['password'])) {
+        errorLogin();
+    }
+    
+    session_start();
+    $_SESSION['hasLogged'] = true;
+    $_SESSION['id'] = $identifiant;
+    echo "Vous êtes connecté !";
+    echo "<button onclick=\"window.location.href='../index.php'\">Menu Principal</button>";
+?>
