@@ -38,7 +38,7 @@ $(function() {
     $('#open-task-popup').on('click', function() {
 
         $.ajax({
-            url: '../api/get_categories.php',
+            url: '../api/categories/get_categories.php',
             type: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -80,7 +80,7 @@ $(function() {
         };
 
         $.ajax({
-            url: '../api/create_task.php',
+            url: '../api/tasks/create_task.php',
             type: 'POST',
             data: dataToSend,
             dataType: 'json',

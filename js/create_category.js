@@ -27,7 +27,7 @@ $(function() {
         };
 
         $.ajax({
-            url: '../api/create_category.php',
+            url: '../api/categories/create_category.php',
             type: 'POST',
             data: dataToSend,
             dataType: 'json',

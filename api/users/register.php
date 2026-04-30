@@ -61,7 +61,7 @@
         exit;
     }
 
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
     $request = "SELECT * FROM accounts WHERE identifiant = '$identifiant';";
     $res = mysqli_query($connexion, $request);
 

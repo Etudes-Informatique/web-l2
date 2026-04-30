@@ -15,9 +15,9 @@ if (!$taskId) {
     exit;
 }
 
-$connexion = mysqli_connect("localhost", "root", "", "task_manager");
+$connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
 
-$stmt = $connexion->prepare("UPDATE tasks SET finished = 1 WHERE id = ? AND identifiant = ?");
+$stmt = $connexion->prepare("UPDATE tasks SET finished = 1, status = 'Terminé' WHERE id = ? AND identifiant = ?");
 $stmt->bind_param("is", $taskId, $userId);
 
 if ($stmt->execute()) {

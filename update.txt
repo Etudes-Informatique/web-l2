@@ -17,22 +17,22 @@
 --------------------------------------------------------
 
 21/04/2026 (Arthur) :
-    - Création du système de connection (php/login.php ; html/login.html)
+    - Création du système de connection (api/users/login.php ; html/login.html)
     - Ajout des deux boutons principaux quand on est connecté (index.php)
     - Retrait de l'ancien bouton d'inscription (index.php)
-    - Ajout du système pour se déconnecter (php/logout.php)
-    - Ajout d'une "API" pour faire la page des tâches dynamiques (api/get_tasks.php)
+    - Ajout du système pour se déconnecter (api/users/logout.php)
+    - Ajout d'une "API" pour faire la page des tâches dynamiques (api/tasks/get_tasks.php)
     - Ajout de la table avec les tâches (bdd.sql)
     - Ajout de la récupération et mise à jour automatiquement des tâches (js/show_task.js)
     - Ajout de la page pour afficher les tâches (php/dashboard.php)
-    - Ajout d'un bouton pour marquer la tâche comme fini (php/dashboard.php ; api/finish_task.php)
-    - Ajout d'un bouton pour supprimer la tâche (php/dashboard.php ; api/delete_task.php)
+    - Ajout d'un bouton pour marquer la tâche comme fini (php/dashboard.php ; api/tasks/finish_task.php)
+    - Ajout d'un bouton pour supprimer la tâche (php/dashboard.php ; api/tasks/delete_task.php)
     - Début de la mise en place de création de tâche (php/dashboard.php ; js/create_task.js)
-    - Mise en place de l'API pour la création de tâche (php/create_task.php)
+    - Mise en place de l'API pour la création de tâche (php/tasks/create_task.php)
 
     Tu vas voir y a pleins de truc dynamique un max maintenant ! Tu vas t'amuser chef !
-    Fichiers modifié : php/register.php ; php/login.php ; html/login.html ; index.php ; php/logout.php ; api/get_tasks.php ; bdd.sql ; js/show_task.js ; php/dashboard.php ; api/finish_task.php ;
-    api/delete_task.php ; js/create_task.js ; php/create_task.php
+    Fichiers modifié : api/users/register.php ; api/users/login.php ; html/login.html ; index.php ; api/users/logout.php ; api/tasks/get_tasks.php ; bdd.sql ; js/show_task.js ; php/dashboard.php ; api/tasks/finish_task.php ;
+    api/tasks/delete_task.php ; js/create_task.js ; php/tasks/create_task.php
 
     TODO: Système de status (Fini, En cours, non commencé)
     TODO: Bouton modification de tâche.
@@ -51,10 +51,10 @@
 
 23/04/2026 (Arthur) :
     - Ajout d'une colonne status pour les tâches (bdd.sql)
-    - Ajout du système pour le changement d'état de la tâche : Non Commencé -> En Cours -> Terminé (js/show_task.js ; php/start_task.php)
-    - Ajout de la possibilité de modifier des tâches. (js/show_task.js ; php/edit_task.php ; php/get_task_id.php)
+    - Ajout du système pour le changement d'état de la tâche : Non Commencé -> En Cours -> Terminé (js/show_task.js ; php/tasks/start_task.php)
+    - Ajout de la possibilité de modifier des tâches. (js/show_task.js ; php/tasks/edit_task.php ; php/tasks/get_task_id.php)
 
-    Fichiers modifié : bdd.sql ; js/show_task.js ; php/start_task.php ; php/edit_task.php ; php/get_task_id.php
+    Fichiers modifié : bdd.sql ; js/show_task.js ; php/tasks/start_task.php ; php/tasks/edit_task.php ; php/tasks/get_task_id.php
 
     TODO: Mise en place des tries des tâches.
     TODO: Création de catégorie 
@@ -74,7 +74,7 @@
     - Amélioration visuel divers...
     - Ajout d'une boite de dialogue une fois connecté.
 
-    Fichiers modifié : index.php ; css/main.css ; php/login.php ; img  
+    Fichiers modifié : index.php ; css/main.css ; api/users/login.php ; img  
 
 24/04/2026 (Arthur)
 
@@ -84,7 +84,7 @@
     - Changement pour les deadlines : l'heure n'est plus demandé
     - Séparation des fonctions du show_task.js en plusieurs fichiers pour aérer
 
-    Fichiers modifié : api/create_category.php ; api/get_categories.php ; api/create_task.php ; js/create_category.js ; js/create_task.js ; php/dashboard.php ; api/edit_task.php ; js/edit_task.js
+    Fichiers modifié : api/categories/create_category.php ; api/categories/get_categories.php ; api/tasks/create_task.php ; js/create_category.js ; js/create_task.js ; php/dashboard.php ; api/tasks/edit_task.php ; js/edit_task.js
 
     TODO: Mise en place des tries des tâches.
 

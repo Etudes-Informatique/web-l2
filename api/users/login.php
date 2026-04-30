@@ -12,10 +12,10 @@ function gotError($connexion) {
         exit;    
     }
 
-    $identifiant = $_GET['identifiant'];
-    $password = $_GET['password'];
+    $identifiant = $_POST['identifiant'];
+    $password = $_POST['password'];
 
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
 
     if (!$connexion) {
         gotError($connexion);
@@ -42,7 +42,7 @@ function gotError($connexion) {
     $_SESSION['hasLogged'] = true;
     $_SESSION['id'] = $identifiant;
     echo "Vous êtes connecté !";
-    echo "<button onclick=\"window.location.href='../index.php'\">Menu Principal</button>";
+    echo "<button onclick=\"window.location.href=../../index.php'\">Menu Principal</button>";
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ function gotError($connexion) {
 <body>
     <script>
         alert("Vous êtes connecté ! Retour au menu principal");
-        window.location.href = "../index.php";
+        window.location.href = "../../index.php";
     </script>
 </body>
 </html>

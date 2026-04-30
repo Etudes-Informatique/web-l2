@@ -7,7 +7,7 @@ if (!$identifiant) {
     exit;
 }
 
-$connexion = mysqli_connect("localhost", "root", "", "task_manager");
+$connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
 $safe_id = mysqli_real_escape_string($connexion, $identifiant);
 
 $request = "SELECT * FROM tasks WHERE identifiant = '$safe_id'";

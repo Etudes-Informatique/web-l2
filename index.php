@@ -15,7 +15,7 @@
                 <a href="index.php"><img src="img/logo.png" alt="TaskManager"></a>
             </div>
             <div id="headBoutons">
-                <a href="./php/logout.php" id="log_off">Se déconnecter<img src="img/se-deconnecter.png" alt="Logout"></a>
+                <a href="./api/users/logout.php" id="log_off">Se déconnecter<img src="img/se-deconnecter.png" alt="Logout"></a>
             </div>
         </header>
         <div id="homeMain">
@@ -33,14 +33,14 @@
                 <a href="index.php"><img src="img/logo.png" alt="TaskManager"></a>
             </div>
             <div id="headBoutons">
-                <a href="./HTML/login.html" id="headConnect">Se connecter</a>
+                <a href="./html/login.html" id="headConnect">Se connecter</a>
                 <a href="./html/register.html" id="headRegister">S'inscrire</a>
             </div>
         </header>
         <div id="homeMain">
             <h1>Organise tes tâches simplement. Gagne du temps, reste focus.</h1>
             <p>Une plateforme intuitive pour gérer tes projets.</p>
-            <form action="./HTML/login.html" method="get" id="formulaire">
+            <form action="./html/login.html" method="get" id="formulaire">
                 <p><input type="submit" value="Commencer ➜" id="Connect"></p>
             </form>
             <p id="createAccount">Pas encore inscrit ? <a href="./html/register.html">Crée un compte</a></p>

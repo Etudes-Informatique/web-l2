@@ -14,7 +14,7 @@ $(function() {
 
     function refreshTasks(userId) {
         $.ajax({
-            url: '../api/get_tasks.php',
+            url: '../api/tasks/get_tasks.php',
             type: 'GET',
             data: { identifiant: userId },
             dataType: 'json',
@@ -62,7 +62,7 @@ $(function() {
         let card = $(this).closest('.task-card');
 
         $.ajax({
-            url: '../api/finish_task.php',
+            url: '../api/tasks/finish_task.php',
             type: 'POST',
             data: { id: taskId },
             dataType: 'json',
@@ -70,6 +70,7 @@ $(function() {
                 if (response.success) {
                     card.css({ "text-decoration": "line-through", "opacity": "0.6" });
                     card.find('.btn-finish').replaceWith("✅");
+                    refreshTasks(currentId);
                 }
             }
         });
@@ -79,10 +80,9 @@ $(function() {
 
     $(document).on('click', '.btn-delete', function() {
         let taskId = $(this).data('id');
-        let card = $(this).closest('.task-card');
 
         $.ajax({
-            url: '../api/delete_task.php',
+            url: '../api/tasks/delete_task.php',
             type: 'POST',
             data: { id: taskId },
             dataType: 'json',
@@ -97,7 +97,7 @@ $(function() {
         let card = $(this).closest('.task-card');
 
         $.ajax({
-            url: '../api/start_task.php',
+            url: '../api/tasks/start_task.php',
             type: 'POST',
             data: { id: taskId },
             dataType: 'json',
@@ -115,7 +115,7 @@ $(function() {
         formData += '&id=' + taskId;
 
         $.ajax({
-            url: '../api/edit_task.php',
+            url: '../api/tasks/edit_task.php',
             type: 'POST',
             data: formData,
             dataType: 'json',

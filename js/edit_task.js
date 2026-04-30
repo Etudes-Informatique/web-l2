@@ -3,13 +3,13 @@ $(document).on('click', '.btn-edit', function() {
     let editorDiv = $(`#tasks-editor-${taskId}`);
 
     $.ajax({
-        url: '../api/get_categories.php',
+        url: '../api/categories/get_categories.php',
         type: 'GET',
         dataType: 'json',
         success: function(catResponse) {
             
             $.ajax({
-                url: '../api/get_task_id.php',
+                url: '../api/tasks/get_task_id.php',
                 type: 'GET',
                 data: { id: taskId },
                 dataType: 'json',
