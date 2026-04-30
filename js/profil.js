@@ -35,4 +35,18 @@ $(function() {
     if (currentId) {
         showAccountDetail(currentId);
     }
+
+    $(document).on('click', '.btn-delete', function() {
+        let userId = $(this).data('id');
+
+        $.ajax({
+            url: '../api/users/delete_account.php',
+            type: 'POST',
+            data: { id: userId },
+            dataType: 'json',
+            success: function(response) {
+                refreshCategories(currentId);
+            }
+        });
+    });
 });
