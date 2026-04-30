@@ -16,6 +16,7 @@
             </div>
             <div id="headBoutons">
                 <a href="./api/users/logout.php" id="log_off">Se déconnecter<img src="img/se-deconnecter.png" alt="Logout"></a>
+                <a href="./php/profil.php" id="show_profil">Profil</a>
             </div>
         </header>
         <div id="homeMain">

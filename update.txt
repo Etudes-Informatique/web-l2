@@ -95,6 +95,7 @@
     TODO: Rappel des tâches qui arrivent bientôt à therme
     TODO: Limite de tâche par page (10,20,...)
     TODO: Pouvoir supprimer son compte
+    TODO: Changer de mot de passe
 
     FEATURES SUPPLEMENTAIRE :
 
