@@ -9,13 +9,9 @@
 
     $userId = $_SESSION['id'];
 
-    $title = $_POST['title'] ?? null;
-    $description = $_POST['description'] ?? null;
-    $priority = $_POST['priority'] ?? null;
-    $deadline = !empty($_POST['deadline']) ? $_POST['deadline'] : null;
-    $category_id = !empty($_POST['category_id']) ? $_POST['category_id'] : null;
+    $name = $_POST['title'] ?? null;
 
-    if (empty($title) || empty($description) || empty($priority)) {
+    if (empty($name)) {
         echo json_encode([
             "success" => false, 
             "error" => "Champs manquants",
@@ -31,8 +27,8 @@
         exit;
     }
 
-    $stmt = $connexion->prepare("INSERT INTO tasks (identifiant, deadline, title, priority, description, category_name) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $userId, $deadline, $title, $priority, $description, $category_id);
+    $stmt = $connexion->prepare("INSERT INTO category (name, identifiant) VALUES (?, ?)");
+    $stmt->bind_param("ss", $name, $userId);
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true]);

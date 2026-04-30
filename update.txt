@@ -68,3 +68,36 @@
     TODO: Pouvoir supprimer son compte
 
 --------------------------------------------------------
+
+24/04/2026 (Gwendal)
+    - Amélioration affichage une fois connecté et/ou déconnecté.
+    - Amélioration visuel divers...
+    - Ajout d'une boite de dialogue une fois connecté.
+
+    Fichiers modifié : index.php ; css/main.css ; php/login.php ; img  
+
+24/04/2026 (Arthur)
+
+    - Ajout de la possibilité de créer des catégories
+    - Possibilité d'affecter des tâches à des catégories.
+    - Ajout de la possibilité de changer la catégorie d'une tâche en la modifiant.
+    - Changement pour les deadlines : l'heure n'est plus demandé
+    - Séparation des fonctions du show_task.js en plusieurs fichiers pour aérer
+
+    Fichiers modifié : api/create_category.php ; api/get_categories.php ; api/create_task.php ; js/create_category.js ; js/create_task.js ; php/dashboard.php ; api/edit_task.php ; js/edit_task.js
+
+    TODO: Mise en place des tries des tâches.
+
+    BONUS :
+    
+    TODO: Barre de recherche 
+    TODO: Système de fitre
+    TODO: Rappel des tâches qui arrivent bientôt à therme
+    TODO: Limite de tâche par page (10,20,...)
+    TODO: Pouvoir supprimer son compte
+
+    FEATURES SUPPLEMENTAIRE :
+
+    TODO: Case à cocher dans la création/modification pour préciser l'heure ou non.
+
+    

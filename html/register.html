@@ -3,9 +3,41 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Task Manager - Inscription</title>
+        <link rel="stylesheet" href="../css/main.css"/>
     </head>
     <body>
+        <header id="head">
+            <div id="logo">
+                <a href="../index.php"><img src="../img/logo.png" alt="TaskManager"></a>
+            </div>
+        </header>
+        <div id="mainLogin">
+            <div id="homeMain">
+                <h1>Vous Inscrire</h1>
+                <p>c'est parti</p>
+            </div>
+            <div id="formLogin">
+                <FORM action="../php/register.php" method="get" id="formulaire">
+                    <div id="formBloc1">
+                        <label>Choisissez votre identifiant</label>
+                        <input type="text" id="identifiant" name="identifiant" placeholder="Identifiant" required>
+                        <label id="enterMdp">Choisissez votre Mot de passe</label>
+                        <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                        <label id="enterMdp">Confirmez votre Mot de passe</label>
+                        <input type="password" id="cpassword" name="cpassword" placeholder="Confirmation Mot de passe"required>
+                        <label id="loginForgotPassword"><a href="">Vous avez oublié votre mot de passe ?</a></label>
+                        <input type="submit" value="Créer votre compte ➜" id="login">
+                        <hr id="loginSeparator">
+                        <label id="loginRegister">Vous avez déjà un compte ? <a href="login.html">Connectez-vous</a></label>
+                        <label id="loginBack"><a href="../index.php">Retour</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
         <FORM action="../php/register.php" method="get" id="formulaire">
             <p id ="Balise"><label>Identifiant :</label></p>
             <p id="Texte"><input type="text" id="identifiant" name="identifiant" required></p>

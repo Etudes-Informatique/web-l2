@@ -1,10 +1,10 @@
 <?php
-session_start();
-if (!isset($_SESSION['hasLogged'])) {
-    header('Location: ../index.php');
-    exit();
-}
-$user_id = $_SESSION['id'];
+    session_start();
+    if (!isset($_SESSION['hasLogged'])) {
+        header('Location: ../index.php');
+        exit();
+    }
+    $user_id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,6 +15,8 @@ $user_id = $_SESSION['id'];
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="../js/show_task.js" defer></script>
     <script src="../js/create_task.js" defer></script>
+    <script src="../js/create_category.js" defer></script>
+    <script src="../js/edit_task.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,6 +31,7 @@ $user_id = $_SESSION['id'];
         <section>
             <h2>Mes Tâches</h2>
             <div id="tasks-create2"></div>
+            <div id="category-create"></div>
             <div id="tasks-container"></div>
         </section>
     </main>

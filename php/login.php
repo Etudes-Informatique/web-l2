@@ -44,3 +44,18 @@ function gotError($connexion) {
     echo "Vous êtes connecté !";
     echo "<button onclick=\"window.location.href='../index.php'\">Menu Principal</button>";
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Connexion</title>
+</head>
+<body>
+    <script>
+        alert("Vous êtes connecté ! Retour au menu principal");
+        window.location.href = "../index.php";
+    </script>
+</body>
+</html>

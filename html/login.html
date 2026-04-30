@@ -3,18 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Task Manager - Connexion</title>
+        <link rel="stylesheet" href="../css/main.css"/>
     </head>
     <body>
-        <FORM action="../PHP/login.php" method="get" id="formulaire">
-            <p id="Balise"><label>Identifiant</label></p>
-            <p id="Texte"><input type="text" id="identifiant" name="identifiant" required></p>
-            <p id="Balise"><label>Mot de passe</label></p>
-            <p id="Balise"><input type="password" id="password" name="password" required></p>
-            <p id="Texte"><input type="submit" value="Se Connecter" id="login"></p>
-        </form>
-        <FORM action="../index.php">
-            <p id="Texte"><input type="submit" value="Retour" id="Retour"></p>
-        </FORM>
+        <header id="head">
+            <div id="logo">
+                <a href="../index.php"><img src="../img/logo.png" alt="TaskManager"></a>
+            </div>
+        </header>
+        <div id="mainLogin">
+            <div id="homeMain">
+                <h1>Vous Connecter</h1>
+                <p>c'est parti</p>
+            </div>
+            <div id="formLogin">
+                <FORM action="../PHP/login.php" method="get" id="formulaire">
+                    <div id="formBloc1">
+                        <label>Votre identifiant</label>
+                        <input type="text" id="identifiant" name="identifiant" placeholder="Identifiant" required>
+                        <label id="enterMdp">Saisissez votre Mot de passe</label>
+                        <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                        <label id="loginForgotPassword"><a href="">Vous avez oublié votre mot de passe ?</a></label>
+                        <input type="submit" value="Se connecter ➜" id="login">
+                        <hr id="loginSeparator">
+                        <label id="loginRegister">Vous n’avez pas de compte ? <a href="register.html">Inscrivez-vous</a></label>
+                        <label id="loginBack"><a href="../index.php">Retour</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

@@ -16,5 +16,13 @@ CREATE TABLE tasks (
     priority VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
     status VARCHAR(100) NOT NULL DEFAULT "Non Commencé",
-    finished TINYINT(1) DEFAULT 0
+    finished TINYINT(1) DEFAULT 0,
+    category_id INT DEFAULT NULL,
+    category_name VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE category (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    identifiant VARCHAR(100) NOT NULL,
+    name VARCHAR(255) NOT NULL
 );

@@ -42,6 +42,7 @@ $(function() {
                                 <p><small><strong>Créée le :</strong> ${dateCrea}</small></p>
                                 <p><small><strong>Échéance :</strong> ${dateEcheance}</small></p>
                                 <p>${boutonTerminer} ${deleteTask} ${editTask}</p>
+                                <p><small><em>Catégorie : ${task.category_name || "Aucune"}</em></small></p>
                                 <div id="tasks-editor-${task.id}"></div>
                             </div>
                         `);
@@ -102,50 +103,6 @@ $(function() {
             dataType: 'json',
             success: function(response) {
                 refreshTasks(currentId);
-            }
-        });
-    });
-
-    $(document).on('click', '.btn-edit', function() {
-        let taskId = $(this).data('id');
-        
-        let editorDiv = $(`#tasks-editor-${taskId}`); 
-
-        $.ajax({
-            url: '../api/get_task_id.php', 
-            type: 'GET',
-            data: { id: taskId },
-            dataType: 'json',
-            success: function(task) {
-                if (task.error) {
-                    alert(task.error);
-                    return;
-                }
-
-                editorDiv.empty();
-                editorDiv.append(`
-                    <form class="form-update-task" data-id="${taskId}" style="margin-top:10px; border-top:1px solid #ccc; padding-top:10px;">
-                        <input type="text" name="title" value="${task.title}" required style="width:100%;">
-                        <textarea name="description" required style="width:100%;">${task.description}</textarea>
-                        
-                        <select name="priority" style="width:100%;">
-                            <option value="Basse" ${task.priority === 'Basse' ? 'selected' : ''}>Basse</option>
-                            <option value="Moyenne" ${task.priority === 'Moyenne' ? 'selected' : ''}>Moyenne</option>
-                            <option value="Haute" ${task.priority === 'Haute' ? 'selected' : ''}>Haute</option>
-                        </select>
-
-                        <select name="status" style="width:100%;">
-                            <option value="Non Commencé" ${task.status === 'Non Commencé' ? 'selected' : ''}>Non Commencé</option>
-                            <option value="En Cours" ${task.status === 'En Cours' ? 'selected' : ''}>En Cours</option>
-                            <option value="Fini" ${task.status === 'Fini' ? 'selected' : ''}>Fini</option>
-                        </select>
-
-                        <input type="datetime-local" name="deadline" value="${task.deadline ? task.deadline.replace(' ', 'T').substring(0, 16) : ''}" style="width:100%;">
-                        
-                        <button type="submit" style="background-color: #28a745; color:white;">Enregistrer</button>
-                        <button type="button" onclick="location.reload()">Annuler</button>
-                    </form>
-                `);
             }
         });
     });

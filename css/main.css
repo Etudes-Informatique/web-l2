@@ -8,14 +8,78 @@ font-family: fontGras;
 src: url("../Nexa-Heavy.ttf");
 }
 
+#head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+#logo img {
+    height: 40px;
+    width: auto;
+}
+
+#headConnect {
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(105, 52, 252);
+    background-color: rgb(105, 52, 252);
+    border-radius: 20px;
+    padding: 8px 30px 8px 30px;
+    font-family: fontFine;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#headRegister {
+    color: rgb(105, 52, 252);
+    border: 2px solid rgb(105, 52, 252);
+    border-radius: 20px;
+    padding: 8px 30px 8px 30px;
+    font-family: fontFine;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#headConnect:hover {
+    background-color: rgb(78, 17, 247);
+    transition: 200ms;
+}
+
+#headRegister:hover {
+    color: white;
+    background-color: rgb(105, 52, 252);
+    transition: 200ms;
+}
+
+#log_off {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: black;
+    text-decoration: none;
+    font-family: fontFine;
+}
+
+#log_off img {
+    height: 20px;
+}
+
+#log_off:hover {
+    opacity: 0.7;
+}
+
 #homeMain{
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black; /* Bordure temporaire pour connaitre les limites du bloc div */
+    /* Bordure temporaire pour connaitre les limites du bloc div */
     color: rgb(34, 34, 34);
     font-family: fontFine;
     font-size: 20px;
+    margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -51,4 +115,125 @@ src: url("../Nexa-Heavy.ttf");
     text-decoration: none;
     color: rgb(105, 52, 252);
     font-weight: bold;
+}
+
+
+/* --- Page de connexion et inscription --- */ 
+
+#mainLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: fontFine;
+}
+
+#formLogin {
+    width: 400px;
+}
+
+#formBloc1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#formBloc1 label {
+    font-size: 14px;
+    color:rgb(0, 0, 0);
+    margin-bottom: 3px;
+}
+
+#enterMdp {
+    margin-top: 20px;
+}
+
+#identifiant, #password, #cpassword {
+    padding: 10px 15px 10px 15px;
+    border: 1px solid rgba(100, 100, 100, 0.521);
+    border-radius: 5px;
+    font-family: fontFine;
+}
+
+#identifiant::placeholder, #password::placeholder, #cpassword::placeholder {
+    font-size: 16px;
+    color: black;
+}
+
+#identifiant:focus, #password:focus, #cpassword:focus {
+    outline: none;
+    border: 1px solid rgb(105, 52, 252);
+}
+
+#identifiant:hover, #password:hover, #cpassword:hover {
+    border: 1px solid rgba(0, 0, 0, 0.801);
+    transition: 250ms;
+}
+
+#loginForgotPassword {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#loginForgotPassword a {
+    color: rgb(74, 35, 179);
+    text-decoration: none;
+}
+
+#loginForgotPassword a:hover {
+    text-decoration: underline;
+    transition: 200ms;
+}
+
+#login {
+    padding: 12px 0px 12px 0px;
+    margin-top: 5px;
+    font-family: fontFine;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(105, 52, 252);
+    border: 0;
+    border-radius: 5px;
+}
+
+#login:hover {
+    background-color: rgb(78, 17, 247);
+    cursor: pointer;
+    transition: 200ms;
+}
+
+#loginSeparator {
+    border: none;
+    height: 2px;
+    width: 100%;
+    margin-top: 80px;
+    background-color: #cccccc;
+}
+
+#loginRegister {
+    text-align: center;
+}
+
+#loginRegister a {
+    text-decoration: none;
+    color: rgb(105, 52, 252);
+}
+
+#loginRegister a:hover {
+    text-decoration: underline;
+    transition: 200ms;
+}
+
+#loginBack {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#loginBack a {
+    text-decoration: none;
+    color: rgb(105, 52, 252);
+}
+
+#loginBack a:hover {
+    text-decoration: underline;
+    transition: 200ms;
 }
