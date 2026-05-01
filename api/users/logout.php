@@ -3,8 +3,7 @@
     if (isset($_SESSION['hasLogged'])) {
         unset($_SESSION['hasLogged']);
         unset($_SESSION['id']);
-        echo "<p>Vous vous êtes déconnecté !</p>";
-        echo "<button onclick=\"window.location.href='../../index.php'\">Retour à l'Acceuil</button>";
+        echo "<script>alert('Vous vous êtes déconnecté avec succès.'); window.location.href = '../../html/login.html';</script>";
         exit;
     }
 ?>

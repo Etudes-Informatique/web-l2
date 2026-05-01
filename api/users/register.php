@@ -1,14 +1,12 @@
 <?php 
     function gotError() {
         echo mysqli_error($connexion);
-        echo "<p id='mysql_error'>Une erreur c'est produite durant votre inscription, veillez contacter l'administrateur.</p>";
-        echo "<button onclick=\"window.location.href='../html/register.html'\">Re-essayer</button>";
+        echo "<script>alert('Une erreur c'est produite durant votre inscription, veillez contacter l'administrateur.'); window.location.href = '../../html/register.html';</script>";
         exit;
     }
 
     function userAlreadyExist() {
-        echo "<p id='mysql_error'>Un utilisateur avec cette identifiant existe déjà.</p>";
-        echo "<button onclick=\"window.location.href='../html/register.html'\">Re-essayer</button>";
+        echo "<script>alert('Un utilisateur avec cette identifiant existe déjà.'); window.location.href = '../../html/register.html';</script>";
         exit;
     }
 
@@ -46,22 +44,19 @@
     $password = $_GET['password'];
     $cpassword = $_GET['cpassword'];
     if (!$identifiant || !$password || !$cpassword) {
-        echo "<p>Des informations sont manquantes, votre inscription n'a pas pu être finalisée.</p>";
-        echo "<button onclick=\"window.location.href='../html/register.html'\">Re-essayer</button>";
+        echo "<script>alert('Des informations sont manquantes, votre inscription n'a pas pu être finalisée.'); window.location.href = '../../html/register.html';</script>";
         exit;
     } 
     if ($password != $cpassword) {
-        echo "<p id='pwd_diff_register'>Les mots de passes ne correspondent pas, veillez ré-essayer.</p>";
-        echo "<button onclick=\"window.location.href='../html/register.html'\">Re-essayer</button>";
+        echo "<script>alert('Les mots de passes ne correspondent pas.'); window.location.href = '../../html/register.html';</script>";
         exit;
     }
     if (!pwdRespectCondition($password)) {
-        echo "<p id='pwd_no_condition'>Le mot de passe doit faire minimum 8 caractères, avec une majuscule et un caractère spéciale</p>";
-        echo "<button onclick=\"window.location.href='../html/register.html'\">Re-essayer</button>";
+        echo "<script>alert('Le mot de passe doit faire minimum 8 caractères, avec une majuscule et un caractère spéciale'); window.location.href = '../../html/register.html';</script>";
         exit;
     }
 
-    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
+    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
     $request = "SELECT * FROM accounts WHERE identifiant = '$identifiant';";
     $res = mysqli_query($connexion, $request);
 
@@ -75,7 +70,7 @@
     if (!$res) {
         gotError();
     }
-    echo "<p>Votre compte a été crée avec succès ! Vous pouvez désormais vous connecter !</p>";
-    echo "<button onclick=\"window.location.href='../html/login.html'\">Allez se connecter</button>";
+    echo "<script>alert('Votre compte a été crée avec succès ! Vous pouvez désormais vous connecter !'); window.location.href = '../../html/login.html';</script>";
+    
     exit;
 ?>
