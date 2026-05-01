@@ -19,14 +19,23 @@
     <script src="../js/edit_task.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Tableau de bord</h1>
-        <div id="user-info" data-id="<?php echo htmlspecialchars($user_id); ?>"></div>
-        <nav>
-            <a href="../index.php">Accueil</a>
-            <a href="logout.php">Se déconnecter</a>
-        </nav>
+    <div id="user-info" data-id="<?php echo htmlspecialchars($user_id); ?>"></div>
+    <header id="head">
+        <div id="logo">
+            <a href="index.php"><img src="../img/logo.png" alt="TaskManager"></a>
+        </div>
+        <div id="headBoutons">
+            <a href="../index.php" id="profil">Accueil</a>
+            <a href="../api/users/logout.php" id="log_off">Se déconnecter<img src="../img/se-deconnecter.png" alt="Logout"></a>
+        </div>
     </header>
+    <div id="homeMain">
+            <h1>Tableau de bord</h1>
+            <p>Mes taches</p>
+            <form action="categoris.php" method="get" id="formulaire">
+                <p><input type="submit" value="Gérer mes catégories ➜" id="Connect"></p>
+            </form>
+        </div>
     <main>
         <section>
             <h2>Mes Tâches</h2>

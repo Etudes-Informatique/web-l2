@@ -54,6 +54,23 @@ src: url("../Nexa-Heavy.ttf");
     transition: 200ms;
 }
 
+#headBoutons {
+    display: flex;
+    align-items: center;
+}
+
+#profil {
+    color: black;
+    text-decoration: none;
+    font-family: fontFine;
+    font-family: fontFine;
+    margin-right: 25px;
+}
+
+#profil:hover {
+    opacity: 0.7;
+}
+
 #log_off {
     display: flex;
     align-items: center;
