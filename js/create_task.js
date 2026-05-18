@@ -1,6 +1,6 @@
 $(function() {
     if ($('#open-task-popup').length === 0) {
-        $('#tasks-create2').append('<button id="open-task-popup">➕ Nouvelle Tâche</button>');
+        $('#tasks-create2').append('<button id="open-task-popup">Nouvelle Tâche</button>');
     }
 
     $('body').append(`
@@ -9,8 +9,8 @@ $(function() {
                 <span id="close-task-popup" style="position:absolute; right:15px; top:10px; cursor:pointer; font-size:20px;">&times;</span>
                 <h2>Créer une tâche</h2>
                 <form id="form-create-task">
-                    <p><input type="text" id="task-title" placeholder="Titre" required style="width:100%;"></p>
-                    <p><textarea id="task-description" placeholder="Description" required style="width:100%;"></textarea></p>
+                    <p><input type="text" id="task-title" placeholder="Titre" required style="width:96%;"></p>
+                    <p><textarea id="task-description" placeholder="Description" required style="width:96%;"></textarea></p>
                     
                     <p>
                         <label>Catégorie :</label><br>
@@ -28,8 +28,8 @@ $(function() {
                         </select>
                     </p>
                     <p><label>Échéance :</label><br>
-                       <input type="date" id="task-deadline" style="width:100%;"></p>
-                    <button type="submit">Enregistrer</button>
+                       <input type="date" id="task-deadline" style="width:97%;"></p>
+                    <button type="submit" id="task-submit">Enregistrer</button>
                 </form>
             </div>
         </div>

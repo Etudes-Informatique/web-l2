@@ -92,7 +92,6 @@ src: url("../Nexa-Heavy.ttf");
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* Bordure temporaire pour connaitre les limites du bloc div */
     color: rgb(34, 34, 34);
     font-family: fontFine;
     font-size: 20px;
@@ -254,3 +253,107 @@ src: url("../Nexa-Heavy.ttf");
     text-decoration: underline;
     transition: 200ms;
 }
+
+/* --- Dashboard --- */
+
+#open-task-popup {
+    color: rgb(255, 255, 255);
+    background-color: rgb(105, 52, 252);
+    border: 0;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-right: 15px;
+    padding: 10px 30px 10px 30px;
+    font-family: fontFine;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#taskBoutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#open-task-popup:hover {
+    background-color: rgb(78, 17, 247);
+    transition: 200ms;
+    cursor: pointer;
+}
+
+/* --- Task pop-up --- */
+
+#form-create-task {
+    font-family: fontFine;
+}
+
+#form-create-task #task-title, #form-create-task #task-description {
+    font-family: fontFine;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 100, 0.521);
+    padding-left: 10px;
+}
+
+#form-create-task #task-category, #form-create-task #task-priority, #form-create-task #task-deadline {
+    font-family: fontFine;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 100, 0.521);
+    padding-left: 10px;
+}
+
+#form-create-task #task-title:focus, #form-create-task #task-description:focus {
+    outline: none;
+    border: 1px solid rgb(105, 52, 252);
+}
+
+#form-create-task #task-category:focus, #form-create-task #task-priority:focus, #form-create-task #task-deadline:focus {
+    outline: none;
+    border: 1px solid rgb(105, 52, 252);
+}
+
+#form-create-task #task-title:hover, #form-create-task #task-description:hover {
+    border: 1px solid rgba(0, 0, 0, 0.801);
+    transition: 250ms;
+}
+
+#form-create-task #task-category:hover, #form-create-task #task-priority:hover, #form-create-task #task-deadline:hover {
+    border: 1px solid rgba(0, 0, 0, 0.801);
+    transition: 250ms;
+}
+
+#form-create-task #task-submit {
+    padding: 5px 20px 5px 20px;
+    margin-top: 25px;
+    margin-left: 35%;
+    font-family: fontFine;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(105, 52, 252);
+    border: 0;
+    border-radius: 5px;
+}
+
+#form-create-task #task-submit:hover {
+    background-color: rgb(78, 17, 247);
+    cursor: pointer;
+    transition: 200ms;
+}
+
+#task-modal h2 {
+    font-family: fontFine;
+    margin-left: 27%;
+}
+
+/* --- Task show card --- */
+
+.task-card {
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+#tasks-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+

@@ -22,7 +22,7 @@
     <div id="user-info" data-id="<?php echo htmlspecialchars($user_id); ?>"></div>
     <header id="head">
         <div id="logo">
-            <a href="index.php"><img src="../img/logo.png" alt="TaskManager"></a>
+            <a href="../index.php"><img src="../img/logo.png" alt="TaskManager"></a>
         </div>
         <div id="headBoutons">
             <a href="../index.php" id="profil">Accueil</a>
@@ -32,10 +32,13 @@
     <div id="homeMain">
             <h1>Tableau de bord</h1>
             <p>Mes taches</p>
-            <form action="categoris.php" method="get" id="formulaire">
-                <p><input type="submit" value="Gérer mes catégories ➜" id="Connect"></p>
-            </form>
-        </div>
+            <div id="taskBoutons">
+                <div id="tasks-create2"></div>
+                <form action="../api/categories/categoris.php" method="get" id="formulaire">
+                    <p><input type="submit" value="Gérer mes catégories" id="Connect"></p>
+                </form>
+            </div>
+    </div>
     <main>
         <section>
             <h2>Mes Tâches</h2>
