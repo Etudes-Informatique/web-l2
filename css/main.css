@@ -348,12 +348,35 @@ src: url("../Nexa-Heavy.ttf");
 /* --- Task show card --- */
 
 .task-card {
-    border: 1px solid black;
+    border: 3px solid rgb(228, 228, 228);
     margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+    width: 400px;
+    overflow-wrap: break-word;
+    font-family: fontFine;
 }
 
 #tasks-container {
     display: flex;
     flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.btn-delete {
+    background-color:white;
+    color: red;
+    border: 0;
+}
+
+.btn-delete:hover {
+    background-color: rgba(255, 0, 0, 0.074);
+    border-radius: 10px;
+    cursor: pointer;
+    
+    transition: 200ms;
 }
 
