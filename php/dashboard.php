@@ -44,5 +44,10 @@
                 </form>
             </div>
     </div>
+    <main>
+        <section>
+            <div id="tasks-container"></div>
+        </section>
+    </main>
 </body>
 </html>
