@@ -39,20 +39,10 @@
             <p>Mes taches</p>
             <div id="taskBoutons">
                 <div id="tasks-create2"></div>
-                <form action="../api/categories/categoris.php" method="get" id="formulaire">
+                <form action="categories.php" method="get" id="formulaire">
                     <p><input type="submit" value="Gérer mes catégories" id="Connect"></p>
                 </form>
             </div>
     </div>
-    <main>
-        <section>
-            <h2>Mes Tâches</h2>
-            <div id="tasks-create2"></div>
-            <form action="categories.php" method="get" id="formulaire">
-                <p><input type="submit" value="Gérer mes catégories" id="dashboard_categories"></p>
-            </form>
-            <div id="tasks-container"></div>
-        </section>
-    </main>
 </body>
 </html>
