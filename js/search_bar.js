@@ -30,7 +30,7 @@ $(document).ready(function() {
         }
         
         $.ajax({
-            url: '../api/tasks/getTask_byName.php',
+            url: '../api/tasks/getTask_byFilter.php',
             type: 'GET',
             data: { q: filter.query, p: filter.priority, s: filter.status },
             dataType: 'json',
