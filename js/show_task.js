@@ -25,7 +25,22 @@ $(function() {
 
                 if (tasks && tasks.length > 0) {
                     tasks.forEach(function(task) {
-                        let styleTermine = task.finished == 1 ? "text-decoration: line-through; opacity: 0.6;" : "";
+
+                        let statusClass = "";
+
+                        if (task.status === "Non Commencé") {
+                            statusClass = "non-commence";
+                        }
+
+                        if (task.status === "◉ En Cours") {
+                            statusClass = "en-cours";
+                        }
+
+                        if (task.status === "Terminé") {
+                            statusClass = "termine";
+                        }
+
+                        let styleTermine = task.finished == 1 ? "opacity: 0.5;" : "";
                         let boutonTerminer = task.finished == 0 ? (task.status == "Non Commencé" ? `<button class="btn-start" data-id="${task.id}">Commencer</button>` : `<button class="btn-finish" data-id="${task.id}">Terminer</button>`) : "✅";
                         let deleteTask = `<button class="btn-delete" data-id="${task.id}">Supprimer</button>`;
                         let editTask = task.finished == 1 ? "" : `<button class="btn-edit" data-id="${task.id}">Modifier</button>`;
@@ -38,10 +53,10 @@ $(function() {
                                 <h3>${task.title}</h3>
                                 <p>${task.description}</p>
                                 <p><small>Priorité : ${task.priority}</small></p>
-                                <p><small>Status : ${task.status}</small></p>
+                                <p><small>Status : <span class="status ${statusClass}">${task.status}</span></small></p>
                                 <p><small><strong>Créée le :</strong> ${dateCrea}</small></p>
                                 <p><small><strong>Échéance :</strong> ${dateEcheance}</small></p>
-                                <p>${boutonTerminer} ${deleteTask} ${editTask}</p>
+                                <p>${boutonTerminer} ${editTask} ${deleteTask}</p>
                                 <p><small><em>Catégorie : ${task.category_name || "Aucune"}</em></small></p>
                                 <div id="tasks-editor-${task.id}"></div>
                             </div>
