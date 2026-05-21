@@ -19,7 +19,7 @@
     <body>
         <div id="user-info" data-id="<?php echo htmlspecialchars($user_id); ?>"></div>
         <div id="stats"></div>
-        <div id="delete_account"></div>
         <div id="change_pwd"></div>
+        <div id="delete_account"></div>
     </body>
 </html>

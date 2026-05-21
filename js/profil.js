@@ -52,7 +52,8 @@ $(function() {
             data: { id: userId },
             dataType: 'json',
             success: function(response) {
-                alert("Votre compte et les données liés ont été supprimé.");
+                    alert("Votre compte a été supprimé !");
+                    window.location.href = '../index.php';
             }
         });
     });
