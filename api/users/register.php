@@ -26,15 +26,12 @@
 
     function pwdRespectCondition($pwd) {
         if (strlen($pwd) < 8) {
-            echo "string < 8\n";
             return false;
         }
         if (!containtUpperCase($pwd)) {
-            echo "No upper case char\n";
             return false;
         }
         if (!containtSpecialCaracter($pwd)) {
-            echo "No special char\n";
             return false;
         }
         return true;
