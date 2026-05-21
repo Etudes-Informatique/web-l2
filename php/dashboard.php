@@ -39,6 +39,8 @@
     <div id="search-results" class="search-box-result"></div>
     <script src="../js/search_bar.js" defer></script>
 
+    <div id="end-soon"></div>
+
     <div id="homeMain">
             <h1>Tableau de bord</h1>
             <p>Mes taches</p>

@@ -55,6 +55,47 @@ $(function() {
                 console.error(xhr);
             }
         });
+
+        $.ajax({
+            url: '../api/tasks/get_tasks_ending_soon.php',
+            type: 'GET',
+            data: { identifiant: userId },
+            dataType: 'json',
+            success: function(tasks) {
+
+                let container = $('#end-soon');
+                container.empty();
+
+                container.append(`ATTENTION ! Vous avez ${tasks.length} ${tasks.length > 1 ? "tâches" : "tâche"} qui ${tasks.length > 1 ? "arrivent" : "arrive"} bientôt à échéance !`)
+
+                if (tasks && tasks.length > 0) {
+                    tasks.forEach(function(task) {
+                        let styleTermine = task.finished == 1 ? "text-decoration: line-through; opacity: 0.6;" : "";
+                        let boutonTerminer = task.finished == 0 ? (task.status == "Non Commencé" ? `<button class="btn-start" data-id="${task.id}">Commencer</button>` : `<button class="btn-finish" data-id="${task.id}">Terminer</button>`) : "✅";
+                        let deleteTask = `<button class="btn-delete" data-id="${task.id}">Supprimer</button>`;
+                        let editTask = task.finished == 1 ? "" : `<button class="btn-edit" data-id="${task.id}">Modifier</button>`;
+                        
+                        let dateCrea = formaterDate(task.created_at);
+                        let dateEcheance = formaterDate(task.deadline);
+
+                        container.append(`
+                            <div class="task-card" id="task-${task.id}" style="${styleTermine}">
+                                <h3>${task.title}</h3>
+                                <p>${task.description}</p>
+                                <p><small>Status : ${task.status}</small></p>
+                                <p><small><strong>Échéance :</strong> ${dateEcheance}</small></p>
+                                <div id="tasks-editor-${task.id}"></div>
+                            </div>
+                        `);
+                    });
+                } else {
+                    container.html("<p>Aucune tâche à afficher.</p>");
+                }
+            },
+            error: function(xhr) {
+                console.error(xhr);
+            }
+        });
     }
 
     $(document).on('click', '.btn-finish', function() {
