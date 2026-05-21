@@ -8,7 +8,7 @@
         exit;
     }
 
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
 
     $stmt = $connexion->prepare("SELECT * FROM tasks WHERE id = ?");
     $stmt->bind_param("i", $taskId);
@@ -22,4 +22,7 @@
     } else {
         echo json_encode($task);
     }
+
+    $stmt->close();
+    mysqli_close($connexion);
 ?>

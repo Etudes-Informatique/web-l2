@@ -15,7 +15,7 @@
         exit;
     }
 
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
 
     $stmt = $connexion->prepare("DELETE FROM tasks WHERE id = ? AND identifiant = ?");
     $stmt->bind_param("is", $taskId, $userId);
@@ -25,4 +25,7 @@
     } else {
         echo json_encode(["success" => false, "error" => "Erreur SQL"]);
     }
+
+    $stmt->close();
+    mysqli_close($connexion);
 ?>

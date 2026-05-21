@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: application/json');
 
 $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
@@ -18,7 +19,7 @@ if (strlen($search) < 2) {
 
 $conditions = ["(title LIKE ? OR description LIKE ?)"];
 $params     = [$search = "%$search%", $search];
-$types      = "ss";
+$types      = "sss";
 
 if ($priority !== '') {
     $conditions[] = "priority = ?";
@@ -31,10 +32,10 @@ if ($status !== '') {
     $params[]     = $status;
     $types       .= "s";
 }
-
+$id = $_SESSION['id']; 
 $where = implode(" AND ", $conditions);
-$stmt  = $connexion->prepare("SELECT * FROM tasks WHERE $where LIMIT 10");
-$stmt->bind_param($types, ...$params);
+$stmt  = $connexion->prepare("SELECT * FROM tasks WHERE identifiant = ? AND $where LIMIT 10");
+$stmt->bind_param($types, $id, ...$params);
 
 if ($stmt->execute()) {
     $tasks = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

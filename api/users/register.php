@@ -56,7 +56,9 @@
         exit;
     }
 
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+    $identifiant = strtolower($identifiant);
+
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
     $request = "SELECT * FROM accounts WHERE identifiant = '$identifiant';";
     $res = mysqli_query($connexion, $request);
 
@@ -73,4 +75,6 @@
     echo "<script>alert('Votre compte a été crée avec succès ! Vous pouvez désormais vous connecter !'); window.location.href = '../../html/login.html';</script>";
     
     exit;
+
+    mysqli_close($connexion);
 ?>

@@ -40,7 +40,7 @@ function gotError($connexion) {
     
     session_start();
     $_SESSION['hasLogged'] = true;
-    $_SESSION['id'] = $identifiant;
+    $_SESSION['id'] = strtolower($identifiant);
     echo "Vous êtes connecté !";
     echo "<button onclick=\"window.location.href=../../php/dashboard.php'\">Menu Principal</button>";
 

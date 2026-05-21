@@ -86,11 +86,6 @@ $(function() {
                 if (tasks && tasks.length > 0) {
                     tasks.forEach(function(task) {
                         let styleTermine = task.finished == 1 ? "text-decoration: line-through; opacity: 0.6;" : "";
-                        let boutonTerminer = task.finished == 0 ? (task.status == "Non Commencé" ? `<button class="btn-start" data-id="${task.id}">Commencer</button>` : `<button class="btn-finish" data-id="${task.id}">Terminer</button>`) : "✅";
-                        let deleteTask = `<button class="btn-delete" data-id="${task.id}">Supprimer</button>`;
-                        let editTask = task.finished == 1 ? "" : `<button class="btn-edit" data-id="${task.id}">Modifier</button>`;
-                        
-                        let dateCrea = formaterDate(task.created_at);
                         let dateEcheance = formaterDate(task.deadline);
 
                         container.append(`
@@ -104,7 +99,7 @@ $(function() {
                         `);
                     });
                 } else {
-                    container.html("<p>Aucune tâche à afficher.</p>");
+                    container.html("<p>Aucune tâche expirant dans les prochaines 24 heures.</p>");
                 }
             },
             error: function(xhr) {

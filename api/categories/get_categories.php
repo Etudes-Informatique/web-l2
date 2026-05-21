@@ -1,7 +1,7 @@
 <?php
     header('Content-Type: application/json');
     session_start();
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
 
     $response = ['success' => false, 'categories' => []];
 
@@ -18,6 +18,9 @@
             $response['error'] = $e->getMessage();
         }
     }
+
+    $stmt->close();
+    mysqli_close($connexion);
 
     echo json_encode($response);
 ?>

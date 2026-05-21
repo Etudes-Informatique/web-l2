@@ -1,18 +1,20 @@
 <?php
-header('Content-Type: application/json');
-$identifiant = $_GET['identifiant'] ?? null;
+    header('Content-Type: application/json');
+    $identifiant = $_GET['identifiant'] ?? null;
 
-if (!$identifiant) {
-    echo json_encode(["error" => "Identifiant absent"]);
-    exit;
-}
+    if (!$identifiant) {
+        echo json_encode(["error" => "Identifiant absent"]);
+        exit;
+    }
 
-$connexion = mysqli_connect("localhost", "root", "", "task_manager");
-$safe_id = mysqli_real_escape_string($connexion, $identifiant);
+    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
+    $safe_id = mysqli_real_escape_string($connexion, $identifiant);
 
-$request = "SELECT * FROM tasks WHERE identifiant = '$safe_id'";
-$res = mysqli_query($connexion, $request);
-$donnees = mysqli_fetch_all($res, MYSQLI_ASSOC);
+    $request = "SELECT * FROM tasks WHERE identifiant = '$safe_id'";
+    $res = mysqli_query($connexion, $request);
+    $donnees = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
-echo json_encode($donnees);
+    echo json_encode($donnees);
+
+    mysqli_close($connexion);
 ?>
