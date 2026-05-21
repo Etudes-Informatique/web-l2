@@ -12,19 +12,27 @@ $(document).ready(function() {
         return jours[d.getDay()] + " " + d.getDate() + " " + mois[d.getMonth()] + " " + d.getFullYear() + " à " + d.getHours() + ":" + m;
     }
 
-    $('#search-input').on('input', function() {
-        let query = $(this).val().trim();
+    function getFilters() {
+        return {
+            query: $('#search-input').val().trim(),
+            priority: $('#priority-selector').val(),
+            status: $('#status-selector').val(),
+        };
+    }
+
+    $('#search-input, #priority-selector, #status-selector').on('input change', function() {
+        let filter = getFilters();
         let $resultsContainer = $('#search-results');
 
-        if (query.length < 2) {
+        if (filter.query.length < 2) {
             $resultsContainer.empty();
             return;
         }
-
+        
         $.ajax({
             url: '../api/tasks/getTask_byName.php',
             type: 'GET',
-            data: { q: query },
+            data: { q: filter.query, p: filter.priority, s: filter.status },
             dataType: 'json',
             success: function(data) {
                 $resultsContainer.empty();
@@ -63,4 +71,25 @@ $(document).ready(function() {
             }
         });
     });
+});
+
+
+$(document).on('click', '.btn-ad-search', function() {
+    let container = $('#more-search');
+    container.empty();
+    let firstSelect = `
+    <select name="Priorité" id="priority-selector">
+        <option value="">--Choissiez une priorité--</option>
+        <option value="Basse">Basse</option>
+        <option value="Moyenne">Moyenne</option>
+        <option value="Haute">Haute</option>
+    </select>`
+    let secondSelect = `
+    <select name="Status" id="status-selector">
+        <option value="">--Choissiez un Status--</option>
+        <option value="Non Commencé">Non Commencé</option>
+        <option value="En Cours">En Cours</option>
+        <option value="Terminé">Terminé</option>
+    </select>`
+    container.append(`${firstSelect} ${secondSelect}`);
 });

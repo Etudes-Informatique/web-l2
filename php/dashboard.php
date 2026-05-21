@@ -29,11 +29,16 @@
             <a href="../api/users/logout.php" id="log_off">Se déconnecter<img src="../img/se-deconnecter.png" alt="Logout"></a>
         </div>
     </header>
-    <div class="search-box">
+
+    <div id="search-box">
         <input type="text" id="search-input" placeholder="Rechercher une tâche">
-        <div id="search-results" class="search-box-result"></div>
     </div>
+    <div id="more-search">
+        <button type="submit" class="btn-ad-search">Recherche Avancé</button>
+    </div>
+    <div id="search-results" class="search-box-result"></div>
     <script src="../js/search_bar.js" defer></script>
+
     <div id="homeMain">
             <h1>Tableau de bord</h1>
             <p>Mes taches</p>

@@ -1,41 +1,47 @@
 <?php
-    header('Content-Type: application/json');
-    
-    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
-    
-    if (!$connexion) {
-        echo json_encode(["success" => false, "error" => "Échec de la connexion : " . mysqli_connect_error()]);
-        exit;
-    }
+header('Content-Type: application/json');
 
+$connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
+if (!$connexion) {
+    echo json_encode(["success" => false, "error" => mysqli_connect_error()]);
+    exit;
+}
 
-    $search = isset($_REQUEST['q']) ? trim($_REQUEST['q']) : '';
+$search   = trim($_REQUEST['q'] ?? '');
+$priority = trim($_REQUEST['p'] ?? '');
+$status   = trim($_REQUEST['s'] ?? '');
 
-    if (strlen($search) < 2) {
-        echo json_encode([]);
-        exit;
-    }
+if (strlen($search) < 2) {
+    echo json_encode([]);
+    exit;
+}
 
-    $searchTerm = "%" . $search . "%";
+$conditions = ["(title LIKE ? OR description LIKE ?)"];
+$params     = [$search = "%$search%", $search];
+$types      = "ss";
 
-    $query = "SELECT * FROM tasks WHERE title LIKE ? OR description LIKE ? LIMIT 10";
-    $stmt = $connexion->prepare($query);
-    
-    $stmt->bind_param("ss", $searchTerm, $searchTerm);
+if ($priority !== '') {
+    $conditions[] = "priority = ?";
+    $params[]     = $priority;
+    $types       .= "s";
+}
 
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        $tasks = [];
+if ($status !== '') {
+    $conditions[] = "status = ?";
+    $params[]     = $status;
+    $types       .= "s";
+}
 
-        while ($row = $result->fetch_assoc()) {
-            $tasks[] = $row;
-        }
+$where = implode(" AND ", $conditions);
+$stmt  = $connexion->prepare("SELECT * FROM tasks WHERE $where LIMIT 10");
+$stmt->bind_param($types, ...$params);
 
-        echo json_encode($tasks);
-    } else {
-        echo json_encode(["success" => false, "error" => $stmt->error]);
-    }
+if ($stmt->execute()) {
+    $tasks = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($tasks);
+} else {
+    echo json_encode(["success" => false, "error" => $stmt->error]);
+}
 
-    $stmt->close();
-    mysqli_close($connexion);
-?>
+$stmt->close();
+$connexion->close();
