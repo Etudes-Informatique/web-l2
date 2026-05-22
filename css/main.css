@@ -281,6 +281,46 @@ src: url("../Nexa-Heavy.ttf");
     cursor: pointer;
 }
 
+#end-soon {
+    font-family: fontFine;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#end-soon2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#end-soon .task-card {
+    font-weight: normal;
+    text-align: left;
+}
+
+#search-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+#search-input {
+   
+    margin-right: 20px;
+}
+
+#ligne-search {
+    border: none;
+    height: 2px;
+    width: 60%;
+    margin-top: 40px;
+    background-color: #dfdfdf;
+}
+
 /* --- Task pop-up --- */
 
 #form-create-task {
@@ -345,7 +385,69 @@ src: url("../Nexa-Heavy.ttf");
     margin-left: 27%;
 }
 
-/* --- Task show card --- */
+/* --- Task edit pop-up --- */
+
+.form-update-task input, .form-update-task textarea {
+    font-family: fontFine;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 100, 0.521);
+    padding-left: 10px;
+}
+
+.form-update-task select {
+    font-family: fontFine;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 100, 0.521);
+    padding-left: 10px;
+}
+
+.form-update-task textarea {
+    margin-top: 10px;
+}
+
+.form-update-task input:focus, .form-update-task textarea:focus, .form-update-task select:focus {
+    outline: none;
+    border: 1px solid rgb(105, 52, 252);
+}
+
+.form-update-task input:hover, .form-update-task textarea:hover, .form-update-task select:hover {
+    border: 1px solid rgba(0, 0, 0, 0.801);
+    transition: 250ms;
+}
+
+#edit-submit, #edit-cancel {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+#edit-submit {
+    background-color: rgb(105, 52, 252);
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgb(105, 52, 252);
+    border-radius: 10px;
+}
+
+#edit-submit:hover {
+    background-color: rgb(78, 17, 247);
+    border-color: rgb(78, 17, 247);
+    transition: 200ms;
+}
+
+#edit-cancel {
+    border: 1px solid rgb(231, 230, 230);
+    background-color: rgb(231, 230, 230);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#edit-cancel:hover {
+    background-color: rgb(211, 211, 211);
+    border-color: rgb(211, 211, 211);
+    transition: 200ms;
+}
+
+/* --- Cartes des tâches --- */
 
 .task-card {
     border: 3px solid rgb(228, 228, 228);

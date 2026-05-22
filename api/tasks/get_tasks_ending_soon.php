@@ -7,7 +7,7 @@
         exit;
     }
 
-    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
+    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
     $safe_id = mysqli_real_escape_string($connexion, $identifiant);
 
     $stmt = $connexion->prepare("

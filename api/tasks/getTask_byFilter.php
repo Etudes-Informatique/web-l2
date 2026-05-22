@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: application/json');
 
-$connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
+$connexion = mysqli_connect("localhost", "root", "", "task_manager");
 if (!$connexion) {
     echo json_encode(["success" => false, "error" => mysqli_connect_error()]);
     exit;

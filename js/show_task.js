@@ -83,16 +83,34 @@ $(function() {
 
                 container.append(`ATTENTION ! Vous avez ${tasks.length} ${tasks.length > 1 ? "tâches" : "tâche"} qui ${tasks.length > 1 ? "arrivent" : "arrive"} bientôt à échéance !`)
 
+                let container2 = $('#end-soon2');
+                container2.empty();
+
                 if (tasks && tasks.length > 0) {
                     tasks.forEach(function(task) {
-                        let styleTermine = task.finished == 1 ? "text-decoration: line-through; opacity: 0.6;" : "";
+
+                        let statusClass = "";
+
+                        if (task.status === "Non Commencé") {
+                            statusClass = "non-commence";
+                        }
+
+                        if (task.status === "◉ En Cours") {
+                            statusClass = "en-cours";
+                        }
+
+                        if (task.status === "Terminé") {
+                            statusClass = "termine";
+                        }
+
+                        let styleTermine = task.finished == 1 ? "opacity: 0.5;" : "";
                         let dateEcheance = formaterDate(task.deadline);
 
-                        container.append(`
+                        container2.append(`
                             <div class="task-card" id="task-${task.id}" style="${styleTermine}">
                                 <h3>${task.title}</h3>
                                 <p>${task.description}</p>
-                                <p><small>Status : ${task.status}</small></p>
+                                <p><small>Status : <span class="status ${statusClass}">${task.status}</span></small></p>
                                 <p><small><strong>Échéance :</strong> ${dateEcheance}</small></p>
                                 <div id="tasks-editor-${task.id}"></div>
                             </div>

@@ -15,7 +15,7 @@ function gotError($connexion) {
     $identifiant = $_POST['identifiant'];
     $password = $_POST['password'];
 
-    $connexion = mysqli_connect("inf-mysql.univ-rouen.fr", "beaucart", "23052003", "beaucart2");
+    $connexion = mysqli_connect("localhost", "root", "", "task_manager");
 
     if (!$connexion) {
         gotError($connexion);

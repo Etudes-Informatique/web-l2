@@ -30,17 +30,6 @@
         </div>
     </header>
 
-    <div id="search-box">
-        <input type="text" id="search-input" placeholder="Rechercher une tâche">
-    </div>
-    <div id="more-search">
-        <button type="submit" class="btn-ad-search">Recherche Avancé</button>
-    </div>
-    <div id="search-results" class="search-box-result"></div>
-    <script src="../js/search_bar.js" defer></script>
-
-    <div id="end-soon"></div>
-
     <div id="homeMain">
             <h1>Tableau de bord</h1>
             <p>Mes taches</p>
@@ -51,6 +40,24 @@
                 </form>
             </div>
     </div>
+
+    <hr id="ligne-search">
+
+    <div id="end-soon"></div>
+    <div id="end-soon2"></div>
+
+    <hr id="ligne-search">
+
+    <div id="search-div">
+        <div id="search-box">
+            <input type="text" id="search-input" placeholder="Rechercher une tâche">
+        </div>
+        <div id="more-search">
+            <button type="submit" class="btn-ad-search">Recherche Avancé</button>
+        </div>
+    </div>
+    <div id="search-results" class="search-box-result"></div>
+    <script src="../js/search_bar.js" defer></script>
 
     <main>
         <section>
