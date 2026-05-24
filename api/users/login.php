@@ -7,8 +7,7 @@ function gotError($connexion) {
     }
 
     function errorLogin() {
-        echo "<p id='mysql_error'>Identifiant ou mot de passe incorrect.</p>";
-        echo "<button onclick=\"window.location.href='../../html/login.html'\">Réessayer</button>";
+        echo "<script> alert('Identifiant ou mot de passe incorrect.'); window.location.href='../../html/login.html';</script>";
         exit;    
     }
 

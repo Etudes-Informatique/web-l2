@@ -11,9 +11,11 @@ $(function() {
                 container_stats.empty();
 
                 container_stats.append(`
-                    <p>Nombre de Tâche : ${tasks.length}</p>
-                    <p>Nombre de Tâche commencé : ${tasks.filter((t) => t.status == "En Cours").length}
-                    <p>Nombre de Tâche Terminé : ${tasks.filter((t) => t.finished == 1).length}
+                    <div id="profil-stats">
+                        <div id="left-stats"><p id="stats-number">${tasks.length}</p> <p>Tâche</p></div>
+                        <div id="center-stats"><p id="stats-number">${tasks.filter((t) => t.status == "En Cours").length}</p> <p>Tâche commencé</p></div>
+                        <div id="right-stats"><p id="stats-number">${tasks.filter((t) => t.finished == 1).length}</p> <p>Tâche Terminé</p></div>
+                    </div>
                 `);
             },
             error: function(xhr) {
@@ -27,7 +29,7 @@ $(function() {
         let deleteAccount = `<button class="btn-delete" data-id="${userId}">Supprimer votre compte</button>`;
         container.append(`
             <p>${deleteAccount}
-            <br><small>Attention : Cette action est irreversible, toutes les données lié à ce compte seront supprimées.</small></p>
+            <br><small id="disclaimer-delete">Attention : Cette action est irreversible, toutes les données lié à ce compte seront supprimées.</small></p>
         `)
 
         let container2 = $('#change_pwd');
@@ -46,16 +48,21 @@ $(function() {
     $(document).on('click', '.btn-delete', function() {
         let userId = $(this).data('id');
 
-        $.ajax({
-            url: '../api/users/delete_account.php',
-            type: 'POST',
-            data: { id: userId },
-            dataType: 'json',
-            success: function(response) {
-                    alert("Votre compte a été supprimé !");
-                    window.location.href = '../index.php';
-            }
-        });
+        if (confirm("Êtes-vous sûr de vouloir supprimer votre compte ?")) {
+
+            $.ajax({
+                url: '../api/users/delete_account.php',
+                type: 'POST',
+                data: { id: userId },
+                dataType: 'json',
+                success: function(response) {
+                        alert("Votre compte a été supprimé !");
+                        window.location.href = '../index.php';
+                }
+            });
+        } else {
+        alert("Suppression annulée.");
+    }
     });
 
     $(document).on('click', '#btn-changepwd', function() {

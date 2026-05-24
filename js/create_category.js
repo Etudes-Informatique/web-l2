@@ -1,6 +1,6 @@
 $(function() {
     if ($('#open-category-popup').length === 0) {
-        $('#category-create').append('<button id="open-category-popup">➕ Nouvelle Catégorie</button>');
+        $('#category-create').append('<button id="open-category-popup">Nouvelle Catégorie</button>');
     }
 
     $('body').append(`
